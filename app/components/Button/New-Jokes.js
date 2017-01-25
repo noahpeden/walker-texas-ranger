@@ -6,7 +6,8 @@ const handleJokes = () => {
 
 const NewJokes = (props) => {
   return (
-    <Link to='/jokes' className='new-jokes' onClick={() => props.getNewJokes() }>New Jokes</Link>
+    <button className="new-jokes"><Link
+      className="new-jokes" to='/jokes' onClick={() => props.getNewJokes() }>Get Jokes</Link></button>
   );
 }
 

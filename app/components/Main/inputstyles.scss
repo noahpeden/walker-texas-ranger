@@ -1,0 +1,40 @@
+@import '../../variables';
+
+.input-area {
+  margin-left: 40%;
+}
+
+.new-jokes {
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.input-number {
+  outline-style: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+
+.new-jokes, .favorites-btn {
+  margin-top: 5px;
+  border: none;
+  outline-style: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.favorites-btn {
+  margin-left: 10%;
+}
+
+.joke {
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+  align-content: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  width: 20%;
+}
