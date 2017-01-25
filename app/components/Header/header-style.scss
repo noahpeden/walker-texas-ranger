@@ -17,8 +17,11 @@
   border-radius: 50%;
   padding-right: 5px;
 }
+.settings:hover {
+  background-color: $background;
+}
 
-h1 {
+.Header-Title {
   font-family: "Bungee Shade", sans-serif;
   font-size: 40px;
   color: white;
