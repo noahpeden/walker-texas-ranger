@@ -12,7 +12,7 @@ const logStuff = () => {
 const Header = () => {
   return (
     <div className="Header">
-      <h1>Chuck Norris Joke Machine</h1>
+      <h1 className="Header-Title">Chuck Norris Joke Machine</h1>
       <Button handleClick={() => logStuff()} />
     </div>
   );

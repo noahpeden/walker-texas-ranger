@@ -1,13 +1,12 @@
-import React from 'react';
-
+import React, {Component} from 'react';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexRedirect } from 'react-router';
 const handleJokes = () => {
   console.log('this handles jokes');
 }
 
 const NewJokes = (props) => {
-
   return (
-    <button className='new-jokes' onClick={() => handleJokes() }>New Jokes</button>
+    <Link to='/jokes' className='new-jokes' onClick={() => props.getNewJokes() }>New Jokes</Link>
   );
 }
 
