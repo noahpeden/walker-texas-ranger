@@ -25,7 +25,7 @@ class Home extends React.Component{
 
   jokesCheck() {
       let display = this.state.jokes.map((joke)=> {
-        return <li key={joke.id}>{joke.joke}</li>
+        return <li className='joke' key={joke.id}>{joke.joke}</li>
       })
       return display;
   }
