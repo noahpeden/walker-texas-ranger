@@ -3,7 +3,6 @@ import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 import sinon from 'sinon';
 import Settings from './Settings';
-import SetButton from './SetButton';
 
 describe('<Settings />', () => {
     it('should display three div tags', ()=> {
