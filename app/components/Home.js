@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import '../styles';
 import Header from './Header/Header';
 import InputArea from './Main/inputArea';
+import FavoritesBtn from './Button/FavoritesButton';
 
 
 
@@ -12,9 +13,36 @@ class Home extends React.Component{
   super()
   this.state = {
     jokes: [],
+    favorites: [],
     randomJoke: '',
     jokesNum: '',
+    firstName: 'Chuck',
+    lastName: 'Norris',
+    setName: '',
+    parentalControls: '',
     }
+  }
+  grabName(e){
+    this.setState({
+      setName: e.target.value
+    })
+  }
+
+  spliceName(e){
+    let name = this.state.setName;
+    let nameArray = name.split(' ')
+    this.setState({
+      firstName: nameArray[0],
+      lastName: nameArray[1]
+    })
+  }
+
+  resetName(e){
+    this.setState({
+      firstName: 'Chuck',
+      lastName: 'Norris'
+    })
+    console.log(this.state.firstName);
   }
 
   handleChange(e){
@@ -23,15 +51,45 @@ class Home extends React.Component{
     })
   }
 
-  jokesCheck() {
-      let display = this.state.jokes.map((joke)=> {
-        return <li className='joke' key={joke.id}>{joke.joke}</li>
+  pushToFavorites(joke, e){
+    this.state.favorites.push(joke.joke)
+    console.log(this.state.favorites);
+  }
+
+  favoritesCheck() {
+      let display = this.state.favorites.map((joke)=> {
+        return <li className='joke'
+                    key={joke.id}>{joke}
+                    <button title='&#9733' className='star'>&#9733;</button></li>
       })
       return display;
   }
 
+
+
+  jokesCheck() {
+      let display = this.state.jokes.map((joke)=> {
+        return <li className='joke'
+                    key={joke.id}>{joke.joke}
+                    <button title='&#9733' className='star' onClick={(e)=>{this.pushToFavorites(joke, e)}}>&#9733;</button></li>
+      })
+      return display;
+  }
+
+  parentControlsOn(){
+    this.setState({
+      parentControls: 'limitTo=[explicit]'
+    })
+  }
+
+  parentControlsOff(){
+    this.setState({
+      parentControls: ''
+    })
+  }
+
   getNewJokes(){
-    const jokeURL = `http://api.icndb.com/jokes/random/${this.state.jokesNum}/?escape=javascript`
+    const jokeURL = `http://api.icndb.com/jokes/random/${this.state.jokesNum}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}&${this.state.parentControls}`
     fetch(jokeURL)
           .then((response)=>{
               return response.json()})
@@ -53,11 +111,22 @@ class Home extends React.Component{
         <div>
         <Header />
         <div className="random-joke">{this.state.randomJoke}</div>
-        <InputArea
-          handleChange={this.handleChange.bind(this)}           jokesNum={this.state.jokesNum}
-          getNewJokes={this.getNewJokes.bind(this)}
-        />
-        <ul>{this.jokesCheck()}</ul>
+          <div className="get-jokes">
+            {React.cloneElement(this.props.children,{
+          pushToFavorites: this.pushToFavorites.bind(this),
+          favoritesCheck: this.favoritesCheck.bind(this),
+          spliceName: this.spliceName.bind(this),
+          parentControlsOn: this.parentControlsOn.bind(this),
+          parentControlsOff: this.parentControlsOff.bind(this),
+          grabName: this.grabName.bind(this),
+          handleChange: this.handleChange.bind(this),
+          resetName: this.resetName.bind(this),
+          jokesNum:this.state.jokesNum,
+          setName: this.state.setName,
+          jokes:this.state.jokes,
+          getNewJokes:this.getNewJokes.bind(this),
+          jokesCheck:this.jokesCheck.bind(this)
+        })}</div>
         </div>
       )
     }

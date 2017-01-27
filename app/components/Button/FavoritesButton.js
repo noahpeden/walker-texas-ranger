@@ -1,13 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexRedirect } from 'react-router';
+import InputArea from '../Main/inputArea';
+import './jokes-styles'
 
-const handleFavorites = () => {
-  console.log("this is handling favorites");
-}
 
 const FavoritesBtn = (props) => {
-  return (
-    <button className='favorites-btn' onClick={() => handleFavorites() }>Favorites</button>
-  );
-}
+     return(
+       <div>
+         <div className='button-input'>
+           <Link to='/jokes'>
+            <button  className='new-jokes'
+                      onClick= {()=>props.getNewJokes()}
+             >Get Jokes</button></Link>
+             <InputArea
+               handleChange={props.handleChange}
+               jokesNum={props.jokesNum}
+               getNewJokes={props.getNewJokes}
+             />
+           <div><Link to='/favorites'><button onClick={()=>props.favoritesCheck()}>Favorites</button></Link></div>
+           </div>
+         <ul>
+           {props.favoritesCheck()}
+         </ul>
+       </div>
+     )
+   }
 
 export default FavoritesBtn;
