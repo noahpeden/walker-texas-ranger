@@ -4,7 +4,6 @@ import Header from './components/Header/Header';
 import Home from './components/home';
 import NewJokes from './components/Button/New-Jokes';
 import  FavoritesBtn  from './components/Button/FavoritesButton';
-import { PageNotFound } from './components/pageNotFound';
 import Settings from './components/Button/Settings'
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexRedirect } from 'react-router';
 
