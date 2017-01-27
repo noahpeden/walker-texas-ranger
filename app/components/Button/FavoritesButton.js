@@ -20,7 +20,7 @@ const FavoritesBtn = (props) => {
            <div><Link to='/favorites'><button onClick={()=>props.favoritesCheck() } className="favorites">Favorites</button></Link></div>
            </div>
          <ul>
-           {props.favoritesCheck()}
+           {props.favorites.length !== 0 ? props.favoritesCheck() : <p className='no-favs'>There are no favorites</p>}
          </ul>
        </div>
      )

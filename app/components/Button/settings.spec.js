@@ -2,22 +2,26 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 import sinon from 'sinon';
-
-import Header from './Header';
+import Settings from './Settings';
+import SetButton from './SetButton';
 
 describe('<Settings />', () => {
-    it('should display a two div tags', ()=> {
+    it('should display three div tags', ()=> {
       const wrapper = shallow(<Settings/>);
-      expect(wrapper.find('div')).to.have.length(2);
+      expect(wrapper.find('div')).to.have.length(3);
     });
 
-    it('should display a single div tag', ()=> {
-      const wrapper = shallow(<Header/>);
-      expect(wrapper.find('div')).to.have.length(1);
+    it('should call spliceName on onClick', () => {
+      const handleClick = sinon.spy()
+      const wrapper = mount(<SetButton className='set-button' onClick={onClick} />)
+      expect(onClick.calledOnce).to.equal(false)
+      wrapper.find('.set-button').simulate('click')
+      expect(onClick.calledOnce).to.equal(true)
     });
-  it('should trigger our logStuff function', ()=> {
+
+    it.skip('should trigger our logStuff function', ()=> {
     const logStuff = sinon.spy();
-    const wrapper = mount(<Button handleClick={logStuff}/>);
+    const wrapper = mount(<Settings handleClick={logStuff}/>);
     wrapper.simulate('click');
     expect(logStuff.calledOnce).to.equal(true);
   })

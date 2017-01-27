@@ -9,7 +9,7 @@ const Header = () => {
       {window.location.pathname === '/settings' ?
       <Link to='/jokes'><button className="settings">JOKES</button></Link>:
           <Link to='/settings'>
-          <button className='settings'>{window.location.pathname === '/settings' ? <p>JOKES</p> : <p>SETTINGS</p>}</button></Link>}
+          <button className='settings'>{window.location.pathname === '/settings' ? <p className='jokes-button'>JOKES</p> : <p>SETTINGS</p>}</button></Link>}
     </div>
   );
 }
