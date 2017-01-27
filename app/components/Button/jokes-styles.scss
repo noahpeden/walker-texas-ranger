@@ -1,0 +1,24 @@
+.button-input {
+  margin-left: 40vw;
+  display:block;
+}
+
+.new-jokes, .input-area {
+  display: inline-block;
+}
+
+.input-number {
+  width: 10px;
+}
+
+.new-jokes, .favorites {
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px 5px;
+}
+
+.new-jokes:hover {
+  background: rgba(255,255,255,0.2)
+}

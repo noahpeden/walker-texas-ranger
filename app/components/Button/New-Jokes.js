@@ -1,14 +1,30 @@
 import React, {Component} from 'react';
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexRedirect } from 'react-router';
-const handleJokes = () => {
-  console.log('this handles jokes');
-}
+import InputArea from '../Main/inputArea';
+import './jokes-styles'
 
-const NewJokes = (props) => {
-  return (
-    <button className="new-jokes"><Link
-      className="new-jokes" to='/jokes' onClick={() => props.getNewJokes() }>Get Jokes</Link></button>
-  );
-}
 
-export default NewJokes;
+export default class NewJokes extends Component {
+ render(){
+   return(
+     <div>
+       <div className='button-input'>
+         <Link to='/jokes'>
+          <button  className='new-jokes'
+                    onClick= {()=>this.props.getNewJokes()}
+           >Get Jokes</button></Link>
+           <InputArea
+             handleChange={this.props.handleChange}
+             jokesNum={this.props.jokesNum}
+             getNewJokes={this.props.getNewJokes}
+           />
+         <div><Link to='/favorites'><button onClick={(e)=>this.props.favoritesCheck()}>Favorites</button></Link></div>
+         </div>
+       <ul>
+         {this.props.jokesCheck()}
+       </ul>
+
+     </div>
+   )
+ }
+}

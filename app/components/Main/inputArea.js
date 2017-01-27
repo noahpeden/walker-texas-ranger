@@ -7,13 +7,11 @@ import './inputstyles';
 const InputArea = (props) => {
   return (
     <div className="input-area">
-      <NewJokes getNewJokes={props.getNewJokes} />
       <input
         className='input-number'
         value={props.jokesNum}
         onChange={(e) => props.handleChange(e)}>
       </input>
-    <div><FavoritesBtn /></div>
     </div>
     )
   }
