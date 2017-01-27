@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header/Header';
 import Home from './components/home';
-import SettingsButton  from './components/Button/SettingsButton';
 import NewJokes from './components/Button/New-Jokes';
 import  FavoritesBtn  from './components/Button/FavoritesButton';
 import { PageNotFound } from './components/pageNotFound';
