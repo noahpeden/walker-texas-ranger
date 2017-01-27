@@ -42,7 +42,6 @@ class Home extends React.Component{
       firstName: 'Chuck',
       lastName: 'Norris'
     })
-    console.log(this.state.firstName);
   }
 
   handleChange(e){
@@ -53,7 +52,8 @@ class Home extends React.Component{
 
   pushToFavorites(joke, e){
     this.state.favorites.push(joke.joke)
-    console.log(this.state.favorites);
+    e.target.classList.toggle('star-clicked')
+    e.target.setAttribute('disabled', 'disabled')
   }
 
   favoritesCheck() {
@@ -127,6 +127,7 @@ class Home extends React.Component{
           getNewJokes:this.getNewJokes.bind(this),
           jokesCheck:this.jokesCheck.bind(this)
         })}</div>
+      <h2 className='click-get-jokes'>{window.location.pathname === '/home' ? <p>Click Get Jokes!</p>: <div/> }</h2>
         </div>
       )
     }

@@ -18,7 +18,7 @@ export default class NewJokes extends Component {
              jokesNum={this.props.jokesNum}
              getNewJokes={this.props.getNewJokes}
            />
-         <div><Link to='/favorites'><button onClick={(e)=>this.props.favoritesCheck()}>Favorites</button></Link></div>
+         <div><Link to='/favorites'><button onClick={(e)=>this.props.favoritesCheck()} className="favorites">Favorites</button></Link></div>
          </div>
        <ul>
          {this.props.jokesCheck()}

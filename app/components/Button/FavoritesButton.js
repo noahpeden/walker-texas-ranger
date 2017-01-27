@@ -17,7 +17,7 @@ const FavoritesBtn = (props) => {
                jokesNum={props.jokesNum}
                getNewJokes={props.getNewJokes}
              />
-           <div><Link to='/favorites'><button onClick={()=>props.favoritesCheck()}>Favorites</button></Link></div>
+           <div><Link to='/favorites'><button onClick={()=>props.favoritesCheck() } className="favorites">Favorites</button></Link></div>
            </div>
          <ul>
            {props.favoritesCheck()}
