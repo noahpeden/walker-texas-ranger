@@ -111,20 +111,20 @@ class Home extends React.Component{
         <div className="random-joke">{this.state.randomJoke}</div>
           <div className="get-jokes">
             {React.cloneElement(this.props.children,{
-          favorites: this.state.favorites,
-          pushToFavorites: this.pushToFavorites.bind(this),
-          favoritesCheck: this.favoritesCheck.bind(this),
-          spliceName: this.spliceName.bind(this),
-          parentControlsOn: this.parentControlsOn.bind(this),
-          parentControlsOff: this.parentControlsOff.bind(this),
-          grabName: this.grabName.bind(this),
-          handleChange: this.handleChange.bind(this),
-          resetName: this.resetName.bind(this),
-          jokesNum:this.state.jokesNum,
-          setName: this.state.setName,
-          jokes:this.state.jokes,
-          getNewJokes:this.getNewJokes.bind(this),
-          jokesCheck:this.jokesCheck.bind(this)
+              favorites: this.state.favorites,
+              pushToFavorites: this.pushToFavorites.bind(this),
+              favoritesCheck: this.favoritesCheck.bind(this),
+              spliceName: this.spliceName.bind(this),
+              parentControlsOn: this.parentControlsOn.bind(this),
+              parentControlsOff: this.parentControlsOff.bind(this),
+              grabName: this.grabName.bind(this),
+              handleChange: this.handleChange.bind(this),
+              resetName: this.resetName.bind(this),
+              jokesNum:this.state.jokesNum,
+              setName: this.state.setName,
+              jokes:this.state.jokes,
+              getNewJokes:this.getNewJokes.bind(this),
+              jokesCheck:this.jokesCheck.bind(this)
         })}</div>
       <h2 className='click-get-jokes'>{window.location.pathname === '/home' ? <p>Click Get Jokes!</p>: <div/> }</h2>
         </div>
