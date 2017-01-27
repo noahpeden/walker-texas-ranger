@@ -59,13 +59,11 @@ class Home extends React.Component{
   favoritesCheck() {
       let display = this.state.favorites.map((joke)=> {
         return <li className='joke'
-                    key={joke.id}>{joke}
+                    key={Date.now()}>{joke}
                     <button title='&#9733' className='star'>&#9733;</button></li>
       })
       return display;
   }
-
-
 
   jokesCheck() {
       let display = this.state.jokes.map((joke)=> {
@@ -113,6 +111,7 @@ class Home extends React.Component{
         <div className="random-joke">{this.state.randomJoke}</div>
           <div className="get-jokes">
             {React.cloneElement(this.props.children,{
+          favorites: this.state.favorites,
           pushToFavorites: this.pushToFavorites.bind(this),
           favoritesCheck: this.favoritesCheck.bind(this),
           spliceName: this.spliceName.bind(this),
